@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e2dccf">
+  <meta name="description" content="Quizdeck is an array-powered practice quiz for learning data structures.">
+  <title>Quizdeck — learn in sequence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="loader" id="loader" hidden><span>QUIZDECK</span></div>
+  <header class="site-header page-width">
+    <a href="#top" class="brand"><span>Q</span>Quizdeck</a>
+    <nav aria-label="Primary"><a href="#quiz">Practice</a><a href="#about">About</a></nav>
+    <button class="header-link" id="restart-top" type="button">Start over <b>↗</b></button>
+  </header>
+  <main id="top">
+    <section class="hero page-width">
+      <div class="hero-axis"></div>
+      <p class="hero-note">Data structures / practice deck</p>
+      <div class="hero-copy"><h1>Learn it.<br><i>Use it.</i></h1><p>Short questions for the concepts behind the code. Move through the deck, one idea at a time.</p><button class="primary-button" id="start-button" type="button">Start the deck <span>↓</span></button></div>
+    </section>
+
+    <section class="quiz-section page-width" id="quiz" aria-labelledby="quiz-title">
+      <div class="quiz-top"><div><h2 id="quiz-title">Data structures</h2></div><div class="progress" aria-label="Question progress"><div class="progress-bar"><i id="progress-bar-fill"></i></div></div></div>
+      <div class="quiz-layout">
+        <article class="question-card" aria-live="polite"><div class="question-meta"><span id="question-category">Foundations</span></div><h3 id="question-text">What does an array store?</h3><div class="answers" id="answers"></div><p class="feedback" id="feedback" hidden></p><button class="next-button" id="next-button" type="button" hidden>Next question <span>→</span></button></article>
+        <aside class="deck-aside"><div class="score-block"><strong id="score">0</strong><small>correct answers</small></div><div class="deck-note"><span class="quote-mark">“</span><p>Understanding comes from seeing the structure behind the interface.</p></div><button class="ghost-button" id="array-button" type="button">See the question array <span>↗</span></button></aside>
+      </div>
+    </section>
+
+    <section class="array-section page-width" id="array-section" hidden><div><h2>The deck is an array.</h2><p>Questions are kept in order. The current index selects one question, its options are another array, and the answer is checked before the next index is reached.</p></div><pre id="array-output" aria-label="Question array preview"></pre></section>
+
+    <section class="about-section page-width" id="about"><h2>Practice makes<br><span>progress.</span></h2><p>Quizdeck turns a list of data-structure concepts into a short practice session. Read the prompt, choose an answer, learn from the feedback, and keep moving.</p><div class="about-stats"><div><strong>Eight</strong><span>questions in the deck</span></div><div><strong>One</strong><span>idea at a time</span></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="page-width footer-inner"><div class="footer-name">Quizdeck</div><div><a href="#quiz">Practice</a><a href="#about">About</a></div><span>Made for a data structures assignment · 2026</span></div></footer>
+  <div class="result-modal" id="result-modal" hidden role="dialog" aria-modal="true" aria-labelledby="result-title"><div class="result-card"><button id="close-result" class="close-button" aria-label="Close result">×</button><h2 id="result-title">Nice work.</h2><p id="result-copy">You made it through the questions.</p><strong class="result-score" id="result-score">0 / 8</strong><button class="primary-button" id="restart-button" type="button">Try again <span>↗</span></button></div></div>
+</body>
+</html>
